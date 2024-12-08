@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Практическая_работа__13</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="game074.ico" />
+    <None Remove="image\calc.png" />
+    <None Remove="image\createFillTable.png" />
+    <None Remove="image\createNullTable.png" />
+    <None Remove="image\createTable.png" />
+    <None Remove="image\exit.png" />
+    <None Remove="image\hideTable.png" />
+    <None Remove="image\infoCreator.png" />
+    <None Remove="image\infoProga.png" />
+    <None Remove="image\open.png" />
+    <None Remove="image\reset.png" />
+    <None Remove="image\save.png" />
+    <None Remove="image\showTable.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="game074.ico" />
+    <Resource Include="image\calc.png" />
+    <Resource Include="image\createFillTable.png" />
+    <Resource Include="image\createNullTable.png" />
+    <Resource Include="image\createTable.png" />
+    <Resource Include="image\exit.png" />
+    <Resource Include="image\hideTable.png" />
+    <Resource Include="image\infoCreator.png" />
+    <Resource Include="image\infoProga.png" />
+    <Resource Include="image\open.png" />
+    <Resource Include="image\reset.png" />
+    <Resource Include="image\save.png" />
+    <Resource Include="image\showTable.png" />
+  </ItemGroup>
+
+</Project>

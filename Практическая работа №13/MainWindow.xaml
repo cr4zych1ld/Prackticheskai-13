@@ -1,0 +1,242 @@
+﻿<Window x:Class="Практическая_работа__13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Практическая_работа__13"
+        mc:Ignorable="d"
+        Title="Практическая работа №13" Height="450" Width="800" FontSize="14" Loaded="Window_Loaded" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="/game074.ico">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Показать таблицу" x:Name="showTable" Click="btnShowTable_Click" IsEnabled="True">
+                <MenuItem.Icon>
+                    <Image Source="image\showTable.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Header="Скрыть таблицу" x:Name="hideTable" Click="btnHideTable_Click" IsEnabled="False">
+                <MenuItem.Icon>
+                    <Image Source="image\hideTable.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <Separator/>
+
+            <MenuItem Header="Подсчёт столбцов" Click="btnCalc_Click">
+                <MenuItem.Icon>
+                    <Image Source="image\calc.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Header="Очистить" Click="btnClear_Click">
+                <MenuItem.Icon>
+                    <Image Source="image\reset.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <Separator/>
+
+            <MenuItem Header="Создать пустую таблицу" Click="btnCreatePolzovatel_Click"/>
+
+            <MenuItem Header="Заполнить таблицу" Click="btnFill_Click"/>
+
+            <MenuItem Header="Создать заполненную таблицу" Click="btnCreate_Click">
+                <MenuItem.Icon>
+                    <Image Source="image\createTable.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <Separator/>
+
+            <MenuItem Header="Сохранить" Click="btnSave_Click">
+                <MenuItem.Icon>
+                    <Image Source="image\save.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Header="Открыть" Click="btnOpen_Click">
+                <MenuItem.Icon>
+                    <Image Source="image\open.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </Window.ContextMenu>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <Menu FontSize="14" Grid.Row="0" Grid.ColumnSpan="3">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Сохранить" Click="btnSave_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\save.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Открыть" Click="btnOpen_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\open.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                
+                <Separator/>
+
+                <MenuItem Header="Выход" Click="btnExit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\exit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Действия">
+                <MenuItem Header="Создать таблицу:">
+                    <MenuItem.Icon>
+                        <Image Source="image\createTable.png"/>
+                    </MenuItem.Icon>
+
+                    <MenuItem Header="Пустую" Click="btnCreatePolzovatel_Click"/>
+
+                    <MenuItem Header="Заполненную" Click="btnCreate_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Заполнить таблицу" Click="btnFill_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\createFillTable.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Подсчёт столбцов" Click="btnCalc_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\calc.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Очистить" Click="btnClear_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\reset.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="btnInfoProga_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\infoProga.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="О создателе" Click="btnInfoCreator_Click">
+                    <MenuItem.Icon>
+                        <Image Source="image\infoCreator.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                
+            </MenuItem>
+        </Menu>
+
+        <ToolBar FontSize="12" Grid.Row="1" Grid.ColumnSpan="3">
+            <Button Click="btnSave_Click">
+                <StackPanel Orientation="Horizontal" ToolTip="Сохранить документ">
+                    <Image Source="image\save.png"/>
+                    <Separator Opacity="0" Width="5"/>
+                    <TextBlock Text="Сохранить"/>
+                </StackPanel>
+            </Button>
+
+            <Separator/>
+
+            <Button Click="btnOpen_Click">
+                <StackPanel Orientation="Horizontal" ToolTip="Открыть документ">
+                    <Image Source="image\open.png"/>
+                    <Separator Opacity="0" Width="5"/>
+                    <TextBlock Text="Открыть"/>
+                </StackPanel>
+            </Button>
+
+            <Separator/>
+
+            <Button Click="btnCalc_Click">
+                <StackPanel Orientation="Horizontal" ToolTip="Подчсёт столбцов">
+                    <Image Source="image\calc.png"/>
+                    <Separator Opacity="0" Width="5"/>
+                    <TextBlock Text="Подсчёт столбцов"/>
+                </StackPanel>
+            </Button>
+
+            <Separator/>
+
+            <Button Click="btnClear_Click">
+                <StackPanel Orientation="Horizontal" ToolTip="Очистить все значения">
+                    <Image Source="image\reset.png"/>
+                    <Separator Opacity="0" Width="5"/>
+                    <TextBlock Text="Очистить"/>
+                </StackPanel>
+            </Button>
+        </ToolBar>
+
+        <DataGrid x:Name="dataGrid" Visibility="Hidden" CellEditEnding="dataGrid_CellEditEnding" Grid.Row="2" Grid.ColumnSpan="3" Margin="10"/>
+
+        <GroupBox Header="Решение" FontSize="16" Grid.Row="3" Grid.Column="0" Margin="10">
+            <StackPanel>
+                <TextBox x:Name="tbRez" Height="30" IsReadOnly="true" TextWrapping="Wrap" Text="" Width="60" Margin="0,15"/>
+                <Button Content="Подсчёт столбцов" ToolTip="Подсчитать количество столбцов с разными значениями" Click="btnCalc_Click" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Создание таблицы" Grid.Row="3" Grid.Column="1" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="tbNumCol" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="40"/>
+                <Label Content="- кол-во столбцов" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1"/>
+
+                <TextBox x:Name="tbNumRow" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="40" Grid.Row="1"/>
+                <Label Content="- кол-во строк" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+
+                <TextBox x:Name="tbDiapozon" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Height="25" Width="40" Grid.Row="2"/>
+                <Label Content="- диапозон чисел" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+
+                <Button Content="Создать пустую таб." Click="btnCreatePolzovatel_Click" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" ToolTip="Создать пустую таблицу указанного размера"/>
+                
+                <Button Content="Заполнить таблицу " Click="btnFill_Click" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" ToolTip="Заполнить созданную таблицу значениями из указанного диапозона"/>
+                
+                <Button Content="Создать заполн. таб." Click="btnCreate_Click" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" ToolTip="Создать случайную таблицу со случайным количеством строк, столбцов и диапозоном значений"/>
+            </Grid>
+        </GroupBox>
+
+        <StatusBar FontSize="16" Grid.Row="4" Grid.ColumnSpan="3">
+            <TextBlock Text="Жаров А.А." ToolTip="Разработчик программы"/>
+            <Separator/>
+            <TextBlock x:Name="time" ToolTip="Актуальное время" />
+            <Separator/>
+            <TextBlock x:Name="data" ToolTip="Актуальная дата"/>
+            <Separator Opacity="0"/>
+            <TextBlock x:Name="razmerTable" ToolTip="Размеры таблицы" Width="40"/>
+            <Separator Opacity="0"/>
+            <TextBlock x:Name="numberCell" ToolTip="Номер ячейки"/>
+        </StatusBar>
+    </Grid>
+</Window>
